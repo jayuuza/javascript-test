@@ -23,34 +23,22 @@ exports.stringsAnswers = {
   },
 
   wordWrap: function(str, cols) {
-  	let count = 0;
-  	let strs = str.split(" ");
-  	
-  	// let out_str = "";
-   //  for (let i = 0; i < strs.length; i++){
-   //    count += strs[i].length;
-   //    if (count > cols){
-   //      count = cols;
-   //    }
-   //    if (count  < cols){
-   //      out_str += strs[i] + " ";
-   //    }
-   //    else if (count == cols){
-   //      out_str = out_str + strs[i] + "\n";
-   //      count = 0;
-   //    }
-   //    else if (count > cols){
-   //      out_str = out_str + "\n" + strs[i];
-   //      count = strs[i].length;
-   //    }
-   //    else {
-   //      out_str[out_str.length] = "";
-   //      out_str += "\n";
-   //      count = 0;
-   //    }
-    
-   //  }
-    return out_str;
+
+    if (str.length > cols) {
+      var space_index = str.slice(0, cols + 1).lastIndexOf(' ');
+      space_index = space_index === -1 ? _.indexOf(str, ' ') : space_index;
+      if (space_index > 0) {
+        var line = str.slice(0, space_index);
+        var next_line = str.slice(space_index + 1);
+        return line + '\n' + stringsAnswers.wordWrap(next_line, cols);
+      }
+      else {
+        var line = str.slice(0, str.length);
+        return line + '\n';
+      }
+    }
+    return str;
+  
   },
 
   reverseString: function(str) {
