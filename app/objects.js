@@ -6,17 +6,17 @@ exports.objectsAnswers = {
   },
 
   alterObjects: function(constructor, greeting) {
-  	constructor.prototype.greeting = greeting;
+    constructor.prototype.greeting = greeting;
     return constructor;
   },
 
   iterate: function(obj) {
-  	let properties = [];
-  	for (var key in obj) {
-  	  if (obj.hasOwnProperty(key)){
-        properties.push(key + ": " + obj[key]);
+    let properties = [];
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        properties.push(key + ': ' + obj[key]);
       }
-  	}
-  	return properties;
-  }
+    }
+    return properties;
+  },
 };

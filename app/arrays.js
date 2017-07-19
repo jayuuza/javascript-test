@@ -43,7 +43,7 @@ exports.arraysAnswers = {
   curtail: function(arr) {
     arr = _.without(arr, _.first(arr));
     return arr;
-  },  
+  },
 
   concat: function(arr1, arr2) {
     return arr1.concat(arr2);
@@ -65,10 +65,9 @@ exports.arraysAnswers = {
     for (let i = 0; i < arr.length; i++) {
       let item = arr[i];
 
-      counts[item] ? counts[item] += 1 : counts[item] = 1;
+      counts[item] ? (counts[item] += 1) : (counts[item] = 1);
 
-      if (counts[item] === 2)
-      {
+      if (counts[item] === 2) {
         no_dups_arr.push(item);
       }
     }
@@ -84,10 +83,11 @@ exports.arraysAnswers = {
     let indices = [];
     for (let i = 0; i < arr.length; i++) {
       let item = arr[i];
-      if (item === target) { indices.push(i)}
+      if (item === target) {
+        indices.push(i);
+      }
     }
 
     return indices;
-
-  }
+  },
 };

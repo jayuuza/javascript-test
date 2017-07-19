@@ -11,27 +11,27 @@ exports.functionsAnswers = {
 
   functionFunction: function(str) {
     return function(str2) {
-      return str + ", " + str2;
-    }
+      return str + ', ' + str2;
+    };
   },
 
   makeClosures: function(arr, fn) {
     return arr.map(function(item) {
-      return function () {
+      return function() {
         return fn(item);
       };
     });
   },
 
   partial: function(fn, str1, str2) {
-    return function(str3){
+    return function(str3) {
       return fn(str1, str2, str3);
-    }
+    };
   },
 
   useArguments: function() {
     let sum = 0;
-    for (let i = 0; i < arguments.length; i++){
+    for (let i = 0; i < arguments.length; i++) {
       sum += arguments[i];
     }
     return sum;
@@ -44,17 +44,20 @@ exports.functionsAnswers = {
   partialUsingArguments: function(fn) {
     let args = Array.prototype.slice.call(arguments, 1);
     return function() {
-      return fn.apply(null, args.concat(Array.prototype.slice.call(arguments, 0)));
-    }
+      return fn.apply(
+        null,
+        args.concat(Array.prototype.slice.call(arguments, 0))
+      );
+    };
   },
 
   curryIt: function(fn) {
-    return function(x){
-      return function(y){
-        return function(z){
-          return fn(x,y,z);
-        }
-      }
-    }
-  }
+    return function(x) {
+      return function(y) {
+        return function(z) {
+          return fn(x, y, z);
+        };
+      };
+    };
+  },
 };
